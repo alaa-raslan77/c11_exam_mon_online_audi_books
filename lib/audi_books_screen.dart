@@ -69,8 +69,8 @@ class AudiBooksScreen extends StatelessWidget {
                       children: [
                         ButtonsTabBar(
                           contentPadding: EdgeInsets.only
-                            (top: 8,bottom: 8,right: 16,left: 16),
-                            buttonMargin: EdgeInsets.only(left: 20,right: 20),
+                            (top: 8,bottom: 8,right: 22,left: 22),
+                            buttonMargin: EdgeInsets.only(left: 15,right: 15),
                             radius: 12,
                             unselectedBackgroundColor: Color(0xFFF5F5FA),
                             backgroundColor: Color(0xFFF5F5FA),
@@ -79,12 +79,12 @@ class AudiBooksScreen extends StatelessWidget {
                             labelStyle: TextStyle(
                               color: Color(0xff2E2E5D),
                               fontWeight: FontWeight.w400,
-                              fontSize: 16
+                              fontSize: 17
                             ),
                             unselectedLabelStyle: TextStyle(
                               color: Color(0xff2E2E5D),
                               fontWeight: FontWeight.w400,
-                              fontSize: 16
+                              fontSize: 17
                             ),
                             // Add your tabs here
                             tabs:[
