@@ -1,8 +1,8 @@
 import 'package:audi_books/app_colors.dart';
-import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:audi_books/slider.dart';
+import 'package:audi_books/tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class AudiBooksScreen extends StatelessWidget {
   static const String routeName ="home";
@@ -23,7 +23,6 @@ class AudiBooksScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-
         toolbarHeight: 95,
         title: Padding(
           padding: const EdgeInsets.only(top: 60,left: 15),
@@ -39,13 +38,16 @@ class AudiBooksScreen extends StatelessWidget {
 
       body: Container(
         color: Colors.white,
-        child: SingleChildScrollView(
+        child:
+        SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
+          child:
+          Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 40),
-                child: Row(
+                child:
+                Row(
                   children: [SizedBox(width: 30,),
                     Text("Categories",style:
                     GoogleFonts.poppins(fontSize: 16,
@@ -58,48 +60,9 @@ class AudiBooksScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20,width: 50,),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children:[
-                    SizedBox(width: 7,)
-                    , DefaultTabController(
-                    length: 4,
-                    child: Column(
-                      children: [
-                        ButtonsTabBar(
-                          contentPadding: EdgeInsets.only
-                            (top: 8,bottom: 8,right: 22,left: 22),
-                            buttonMargin: EdgeInsets.only(left: 15,right: 15),
-                            radius: 12,
-                            unselectedBackgroundColor: Color(0xFFF5F5FA),
-                            backgroundColor: Color(0xFFF5F5FA),
-                            borderWidth: 0,
-                            borderColor: Color(0xFFF5F5FA),
-                            labelStyle: TextStyle(
-                              color: Color(0xff2E2E5D),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17
-                            ),
-                            unselectedLabelStyle: TextStyle(
-                              color: Color(0xff2E2E5D),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17
-                            ),
-                            // Add your tabs here
-                            tabs:[
-                              Tab(text: "Art"),
-                              Tab(text: "Business"),
-                              Tab(text: "Comedy"),
-                              Tab(text: "Drama"),
-                            ]
-                        ),
-                      ],
-                    ),
-                  )
-                  ],
-                ),
-              ),
+
+              TabBarr(),
+
               SizedBox(height: 42,),
               Row(
                 children: [
@@ -114,22 +77,9 @@ class AudiBooksScreen extends StatelessWidget {
                   SizedBox(width: 27,)
               ],),
               SizedBox(height: 22,),
-              Padding(
-                padding: const EdgeInsets.only(left: 17),
-                child: CarouselSlider(items: recommended.map((item)=>
-                    Container(child: Center(child:
-                    Image.asset(item,fit: BoxFit.fill,
-                      width: 200,),))).toList(),
-                    options: CarouselOptions(
-                      autoPlay: false,
-                      height: 300,
-                        disableCenter: false,
-                      //enlargeCenterPage: true,
-                      padEnds: false,
-                      viewportFraction: .569,
 
-                    )),
-              ),
+              SliderCard(item_card: recommended, width: 200, height: 300, fraction: .569),
+
               SizedBox(height: 30,),
               Row(children: [
                 SizedBox(width: 30,),
@@ -142,19 +92,8 @@ class AudiBooksScreen extends StatelessWidget {
                     color:AppColors.Primary)),
                 SizedBox(width: 27,)],),
               SizedBox(height: 22,),
-              CarouselSlider(items: bestSeller.map((item)=>
-                  Container(child: Center(child:
-                  Image.asset(item,fit: BoxFit.fill,
-                    width: 315,),))).toList(),
-                  options: CarouselOptions(
-                    autoPlay: false,
-                    height: 144,
-                    disableCenter: false,
-                    //enlargeCenterPage: true,
-                    padEnds: false,
-                    viewportFraction: .855,
 
-                  )),
+              SliderCard(item_card: bestSeller, width: 315, height: 144, fraction: .855)
             ],
           ),
         ),
@@ -168,6 +107,4 @@ class AudiBooksScreen extends StatelessWidget {
       ),
         );
   }
-
-
 }

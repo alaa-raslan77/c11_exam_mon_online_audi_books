@@ -6,40 +6,46 @@ class TabBarr extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: DefaultTabController(
-        length: 4,
-        child: Column(
-          children: <Widget>[
-            ButtonsTabBar(
-              // Customize the appearance and behavior of the tab bar
-              backgroundColor: Colors.red,
-              borderWidth: 2,
-              borderColor: Colors.black,
-              labelStyle: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-              unselectedLabelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-              // Add your tabs here
-              tabs: [
-                Tab(text: 'Tab 1'),
-                Tab(text: 'Tab 2'),
-                Tab(text: 'Tab 3'),
-                Tab(text: 'Tab 3'),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children:[
+          SizedBox(width: 7,)
+          , DefaultTabController(
+            length: 4,
+            child: Column(
+              children: [
+                ButtonsTabBar(
+                    contentPadding: EdgeInsets.only
+                      (top: 8,bottom: 8,right: 22,left: 22),
+                    buttonMargin: EdgeInsets.only(left: 15,right: 15),
+                    radius: 12,
+                    unselectedBackgroundColor: Color(0xFFF5F5FA),
+                    backgroundColor: Color(0xFFF5F5FA),
+                    borderWidth: 0,
+                    borderColor: Color(0xFFF5F5FA),
+                    labelStyle: TextStyle(
+                        color: Color(0xff2E2E5D),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17
+                    ),
+                    unselectedLabelStyle: TextStyle(
+                        color: Color(0xff2E2E5D),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17
+                    ),
+                    // Add your tabs here
+                    tabs:[
+                      Tab(text: "Art"),
+                      Tab(text: "Business"),
+                      Tab(text: "Comedy"),
+                      Tab(text: "Drama"),
+                    ]
+                ),
               ],
             ),
-            Expanded(
-              child: TabBarView(
-                children: [],
-              ),
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
