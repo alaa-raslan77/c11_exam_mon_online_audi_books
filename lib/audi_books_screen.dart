@@ -24,10 +24,33 @@ class AudiBooksScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 95,
-        title: Padding(
+        leading:  Padding(
           padding: const EdgeInsets.only(top: 60,left: 15),
-          child: Image.asset("assets/images/app_name.png"),
+          child: Image.asset("assets/images/logo.png",),
         ),
+        leadingWidth: 70,
+        titleSpacing: 0,
+        title: Container(
+          padding: EdgeInsets.only(top: 60),
+          child: RichText(text: TextSpan(
+              children:<TextSpan> [
+                TextSpan(text: 'Audi',style:
+                GoogleFonts.roboto(
+                    color: AppColors.Primary,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700) ),
+                TextSpan(text: 'Books',style:
+                GoogleFonts.roboto(
+                    color: AppColors.Primary,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400)),
+                TextSpan(text: '.',style:
+                GoogleFonts.roboto(
+                    color: Colors.orange,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400))
+              ]
+          )),),
         actions: [Padding(
           padding: const EdgeInsets.only(top: 50,right: 10),
           child: IconButton(onPressed: () {},
